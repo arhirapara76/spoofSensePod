@@ -36,7 +36,7 @@ class ResultCameraViewModel {
                 return
             }
             DispatchQueue.main.async {
-                if let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                if let jsonData = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]) {
                     if let detaill = jsonData["detail"] as? String {
                         failure(NSError(localizedDescription: detaill))
                     } else {
