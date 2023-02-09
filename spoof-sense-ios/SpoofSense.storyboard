@@ -423,6 +423,9 @@
                     <navigationItem key="navigationItem" id="hla-Lo-Odd"/>
                     <connections>
                         <outlet property="btnCheckLiveness" destination="klo-ID-Fw1" id="oXw-nX-hfK"/>
+                        <outlet property="imageFaceTrueDetect" destination="VGC-2A-7oe" id="gca-uR-ROF"/>
+                        <outlet property="imageViewMultiFace" destination="7z9-rT-1Gm" id="XzZ-us-HwL"/>
+                        <outlet property="imageVuewNoFaceDetect" destination="Yyb-wQ-QbZ" id="kxr-4w-wjU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utu-11-7jw" sceneMemberID="firstResponder"/>

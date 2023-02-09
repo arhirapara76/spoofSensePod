@@ -21,10 +21,6 @@ public class ResultViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
     }
-    @IBAction func onBtnGoToHome(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-   
 }
 
 private extension ResultViewController {
@@ -51,11 +47,20 @@ private extension ResultViewController {
     func showResultText(_ isSucess: Bool, message: String) {
         self.viewShowMessgae.isHidden = false
         lblText.text = message
+        let podBundle = Bundle(for: ResultViewController.self)
         if isSucess {
-            imageViewLogo.image = UIImage(named: "ic_sucess")
+            let image = UIImage(named: "ic_sucess", in: podBundle, compatibleWith: nil)
+            imageViewLogo.image = image
         } else {
-            imageViewLogo.image = UIImage(named: "ic_faild")
+            let image = UIImage(named: "ic_faild", in: podBundle, compatibleWith: nil)
+            imageViewLogo.image = image
         }
+    }
+}
+
+private extension ResultViewController {
+    @IBAction func onBtnGoToHome(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

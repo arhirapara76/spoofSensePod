@@ -27,6 +27,9 @@ private extension SplaceViewController {
     func setupUI() {
         btnCheckLiveness.clipsToBounds = true
         btnCheckLiveness.layer.cornerRadius = 4
+        let podBundle = Bundle(for: SplaceViewController.self)
+        let image1 = UIImage(named: "ic_splace_logo", in: podBundle, compatibleWith: nil)
+        imageViewLogo.image = image1
     }
 }
 

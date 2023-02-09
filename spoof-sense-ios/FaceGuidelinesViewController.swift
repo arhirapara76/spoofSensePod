@@ -10,13 +10,17 @@ import UIKit
 public class FaceGuidelinesViewController: UIViewController {
     
     @IBOutlet weak var btnCheckLiveness: UIButton!
-
+    @IBOutlet weak var imageFaceTrueDetect: UIImageView!
+    @IBOutlet weak var imageVuewNoFaceDetect: UIImageView!
+    @IBOutlet weak var imageViewMultiFace: UIImageView!
+    
     var resultCameraVM = ResultCameraViewModel()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+    
 }
 
 private extension FaceGuidelinesViewController {
@@ -26,6 +30,13 @@ private extension FaceGuidelinesViewController {
         btnCheckLiveness.setTitle(self.resultCameraVM.btnTextTitle, for: .normal)
         btnCheckLiveness.setTitleColor(self.resultCameraVM.btnTitleColor, for: .normal)
         btnCheckLiveness.backgroundColor = self.resultCameraVM.btnBackgroundColor
+        let podBundle = Bundle(for: FaceGuidelinesViewController.self)
+        let image1 = UIImage(named: "ic_face_right", in: podBundle, compatibleWith: nil)
+        let image2 = UIImage(named: "ic_wrong_face", in: podBundle, compatibleWith: nil)
+        let image3 = UIImage(named: "ic_multi_face", in: podBundle, compatibleWith: nil)
+        imageFaceTrueDetect.image = image1
+        imageVuewNoFaceDetect.image = image2
+        imageViewMultiFace.image = image3
     }
 }
 
