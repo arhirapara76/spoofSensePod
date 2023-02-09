@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.source_files = 'spoofSensePod', 'spoof-sense-ios/**/*.{swift}'
-	s.resources = "spoof-sense-ios/**/*.{storyboard,xib}, 'spoof-sense-ios/Assets/*.png'"
+	s.resources = "spoof-sense-ios/**/*.{storyboard,xib}"
 
     s.frameworks = 'UIKit', 'Foundation', 'AVFoundation', 'AVKit'
     s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
