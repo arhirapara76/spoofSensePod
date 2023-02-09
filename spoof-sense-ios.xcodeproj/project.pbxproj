@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		88BAA73E2994BC6E00B2CD57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA73D2994BC6E00B2CD57 /* AppDelegate.swift */; };
-		88BAA7452994BC6E00B2CD57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAA7432994BC6E00B2CD57 /* Main.storyboard */; };
 		88BAA7472994BC6F00B2CD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BAA7462994BC6F00B2CD57 /* Assets.xcassets */; };
 		88BAA74A2994BC6F00B2CD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAA7482994BC6F00B2CD57 /* LaunchScreen.storyboard */; };
 		88BAA7532994BDF800B2CD57 /* FaceGuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7512994BDF800B2CD57 /* FaceGuidelinesViewController.swift */; };
@@ -55,12 +54,12 @@
 		88BAA7A82994D87000B2CD57 /* ApiKeyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A72994D87000B2CD57 /* ApiKeyClass.swift */; };
 		88BAA7AA2994D8DF00B2CD57 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */; };
 		88BAA7AC2994D8FA00B2CD57 /* NSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */; };
+		88BAA7AE2994EE2C00B2CD57 /* SpoofSense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		88BAA73A2994BC6E00B2CD57 /* spoof-sense-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoof-sense-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BAA73D2994BC6E00B2CD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88BAA7442994BC6E00B2CD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88BAA7462994BC6F00B2CD57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88BAA7492994BC6F00B2CD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88BAA74B2994BC6F00B2CD57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		88BAA7A72994D87000B2CD57 /* ApiKeyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyClass.swift; sourceTree = "<group>"; };
 		88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extension.swift"; sourceTree = "<group>"; };
+		88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpoofSense.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +149,7 @@
 				88BAA7A72994D87000B2CD57 /* ApiKeyClass.swift */,
 				88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */,
 				88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */,
-				88BAA7432994BC6E00B2CD57 /* Main.storyboard */,
+				88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */,
 				88BAA7462994BC6F00B2CD57 /* Assets.xcassets */,
 				88BAA7482994BC6F00B2CD57 /* LaunchScreen.storyboard */,
 				88BAA7552994BFA600B2CD57 /* Font */,
@@ -308,10 +308,10 @@
 				88BAA7952994BFA600B2CD57 /* OpenSans-SemiBold.ttf in Resources */,
 				88BAA79B2994BFA600B2CD57 /* OpenSans-Bold.ttf in Resources */,
 				88BAA7872994BFA600B2CD57 /* OpenSans_SemiCondensed-BoldItalic.ttf in Resources */,
+				88BAA7AE2994EE2C00B2CD57 /* SpoofSense.storyboard in Resources */,
 				88BAA7982994BFA600B2CD57 /* OpenSans-MediumItalic.ttf in Resources */,
 				88BAA79D2994BFA600B2CD57 /* OpenSans-Medium.ttf in Resources */,
 				88BAA78A2994BFA600B2CD57 /* OpenSans_Condensed-ExtraBold.ttf in Resources */,
-				88BAA7452994BC6E00B2CD57 /* Main.storyboard in Resources */,
 				88BAA7962994BFA600B2CD57 /* OpenSans-Light.ttf in Resources */,
 				88BAA7862994BFA600B2CD57 /* OpenSans_SemiCondensed-Italic.ttf in Resources */,
 				88BAA7822994BFA600B2CD57 /* OpenSans_SemiCondensed-SemiBold.ttf in Resources */,
@@ -347,14 +347,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		88BAA7432994BC6E00B2CD57 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88BAA7442994BC6E00B2CD57 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88BAA7482994BC6F00B2CD57 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -492,9 +484,12 @@
 				DEVELOPMENT_TEAM = P6ZFDMFN8W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "spoof-sense-ios/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera for uploading profile image.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) uses the photo for uploading profile image.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) uses the photo for uploading profile image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SpoofSense;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -521,9 +516,12 @@
 				DEVELOPMENT_TEAM = P6ZFDMFN8W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "spoof-sense-ios/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera for uploading profile image.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) uses the photo for uploading profile image.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) uses the photo for uploading profile image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = SpoofSense;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;

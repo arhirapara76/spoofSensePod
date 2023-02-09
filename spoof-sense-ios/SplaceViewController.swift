@@ -49,7 +49,7 @@ public extension SplaceViewController {
 //MARK: Action
 private extension SplaceViewController {
     @IBAction func onBtnCheckLiveness(_ sender: UIButton) {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
+        let vc = UIStoryboard.init(name: "SpoofSense", bundle: Bundle.main).instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
         vc?.resultCameraVM = self.resultCameraVM
         self.navigationController?.pushViewController(vc!, animated: true)
 
