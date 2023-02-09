@@ -112,9 +112,10 @@ private extension CameraViewController {
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData), let dataImage = image.jpegData(compressionQuality: 0.5)
+//        guard let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData), let dataImage = image.jpegData(compressionQuality: 0.5)
+        guard let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData)
         else { return }
-        let strBase64 = dataImage.base64EncodedString(options: .lineLength64Characters)
+        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         self.resultCameraVM.base64ImageData = strBase64
         self.goToResultView()
     }
