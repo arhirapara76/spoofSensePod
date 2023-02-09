@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "spoofSenseios"
-    s.version          = "0.0.7"
+    s.version          = "0.0.8"
     s.summary          = 'Check Face'
     s.license          = 'MIT'
     s.author           = {'Ajay' => 'ajay@appringer.com'}
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.source_files = 'spoofSensePod', 'spoof-sense-ios/**/*.{swift}'
-	s.resources = "spoof-sense-ios/**/*.{storyboard,xib}"
+	s.resources = "spoof-sense-ios/**/*.{storyboard,xib,'Assets'}"
 
     s.frameworks = 'UIKit', 'Foundation', 'AVFoundation', 'AVKit'
     s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
