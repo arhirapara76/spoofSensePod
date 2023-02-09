@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "spoofSenseios"
-    s.version          = "0.0.6"
+    s.version          = "0.0.7"
     s.summary          = 'Check Face'
     s.license          = 'MIT'
     s.author           = {'Ajay' => 'ajay@appringer.com'}

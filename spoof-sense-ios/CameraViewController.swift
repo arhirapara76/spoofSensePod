@@ -97,7 +97,9 @@ private extension CameraViewController {
     }
     
     func goToResultView() {
-        let vc = UIStoryboard.init(name: "SpoofSense", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+        let podBundle = Bundle(for: ResultViewController.self)
+        let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
         vc?.resultCameraVM = self.resultCameraVM
         self.navigationController?.pushViewController(vc!, animated: true)
     }

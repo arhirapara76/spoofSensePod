@@ -42,7 +42,9 @@ public extension FaceGuidelinesViewController {
 
 private extension FaceGuidelinesViewController {
     @IBAction func onBtnCheckLiveness(_ sender: UIButton) {
-        let vc = UIStoryboard.init(name: "SpoofSense", bundle: Bundle.main).instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+        let podBundle = Bundle(for: CameraViewController.self)
+        let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
         vc?.resultCameraVM = self.resultCameraVM
         self.navigationController?.pushViewController(vc!, animated: true)
     }
