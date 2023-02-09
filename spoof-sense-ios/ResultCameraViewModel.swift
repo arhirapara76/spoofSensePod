@@ -14,8 +14,8 @@ typealias FailureResponse = (NSError?) -> (Void)
 class ResultCameraViewModel {
     
     var btnTextTitle = "Check Liveness"
-    var btnTitleColor = UIColor(named: "Button_Text_Color_FFFFFF")!
-    var btnBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0")!
+    var btnTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ??  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    var btnBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ??  #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
     var isShowGuidelinesVC = true
 
     var base64ImageData = ""
