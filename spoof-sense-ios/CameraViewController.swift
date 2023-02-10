@@ -21,6 +21,7 @@ public class CameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
         btnCapture.clipsToBounds = true
         btnCapture.layer.cornerRadius = btnCapture.bounds.height / 2
     }
@@ -32,7 +33,7 @@ public class CameraViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setupUI()
+        btnCapture.layer.cornerRadius = btnCapture.bounds.height / 2
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -46,8 +47,6 @@ public class CameraViewController: UIViewController {
 
 private extension CameraViewController {
     func setupUI() {
-        btnCapture.clipsToBounds = true
-        btnCapture.layer.cornerRadius = btnCapture.bounds.height / 2
         setCustomUI()
     }
     
@@ -110,7 +109,6 @@ private extension CameraViewController {
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        //        guard let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData), let dataImage = image.jpegData(compressionQuality: 0.5)
         guard let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData)
         else { return }
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
