@@ -2,9 +2,9 @@
 
 ## Requirements
 
-| Platform | Minimum Swift Version | Installation | Status |
+| Platform | Minimum Swift Version | Installation
 | --- | --- | --- | --- |
-| iOS 13.2+ | 5.0 | [CocoaPods](#cocoapods) | Fully Tested |
+| iOS 13.2+ | 5.0 | [CocoaPods](#cocoapods)
 
 ## Installation
 
