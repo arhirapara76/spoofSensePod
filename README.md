@@ -77,8 +77,10 @@ For Example:
 ```
   SpoofSense.buttonBackgroundColor = .red
   SpoofSense.apiKey = "Set_Your_Api_Key"
-
-  SpoofSense.launch(with: Your_Navigation_Controller)
+//Open specific screen
+ SpoofSense.showScreen = .openSplaceScreen // Open Any Screen(.openGuidelinesScreen, .openCameraScreen)
+ SpoofSense.showFaceGuidelinesScreen = false // By defult value is True, assign False skip GuidelinesScreen
+ SpoofSense.launch(with: Your_Navigation_Controller)
 ```
 
 ## How to get result 
