@@ -10,9 +10,9 @@ import UIKit
 
 public class SetCustomUI {
     
-    static let shared = SetCustomUI()
+    public static let shared = SetCustomUI()
         
-    var apiKey: String {
+    public var apiKey: String {
         get {
             return "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
         }
@@ -21,7 +21,7 @@ public class SetCustomUI {
         }
     }
     
-    var buttonTextTitle: String {
+    public var buttonTextTitle: String {
         get {
             return "Check Liveness"
         }
@@ -30,7 +30,7 @@ public class SetCustomUI {
         }
     }
     
-    var buttonTitleColor: UIColor {
+    public var buttonTitleColor: UIColor {
         get {
             return UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
@@ -39,7 +39,7 @@ public class SetCustomUI {
         }
     }
     
-    var buttonBackgroundColor: UIColor {
+    public var buttonBackgroundColor: UIColor {
         get {
             return UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
         }
@@ -48,7 +48,7 @@ public class SetCustomUI {
         }
     }
     
-    var isShowGuidelinesVC: Bool {
+    public var isShowGuidelinesVC: Bool {
         get {
             return true
         }
@@ -57,7 +57,7 @@ public class SetCustomUI {
         }
     }
     
-    var appLogo: UIImage {
+    public var appLogo: UIImage {
         get {
             return UIImage(named: "ic_splace_logo")!
         }
@@ -66,7 +66,7 @@ public class SetCustomUI {
         }
     }
     
-    var appFirstName: String {
+    public var appFirstName: String {
         get {
             return "Spoof"
         }
@@ -75,7 +75,7 @@ public class SetCustomUI {
         }
     }
     
-    var appFirstNameColor: UIColor {
+    public var appFirstNameColor: UIColor {
         get {
             return UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
         }
@@ -84,7 +84,7 @@ public class SetCustomUI {
         }
     }
     
-    var appLastNameColor: UIColor {
+    public var appLastNameColor: UIColor {
         get {
             return UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         }
@@ -93,7 +93,7 @@ public class SetCustomUI {
         }
     }
     
-    var appLastName: String {
+    public var appLastName: String {
         get {
             return "Sense"
         }
@@ -102,7 +102,7 @@ public class SetCustomUI {
         }
     }
     
-    var versionNumberString: String {
+    public var versionNumberString: String {
         get {
             return "face v1.0.8"
         }
@@ -111,7 +111,7 @@ public class SetCustomUI {
         }
     }
     
-    var versionNumberColor: UIColor {
+    public var versionNumberColor: UIColor {
         get {
             return UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
         }
