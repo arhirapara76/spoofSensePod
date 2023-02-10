@@ -13,6 +13,12 @@ enum UserDefaultKeys: String {
     case userRegisterApiKey                                              = "UserRegisterApiKey"
 }
 
+public enum SelecteLaunchScreen {
+    case openSplaceScreen
+    case openGuidelinesScreen
+    case openCameraScreen
+}
+
 enum ResultValue: String, CaseIterable {
     case real                                                            = "real"
     case spoof                                                           = "spoof"

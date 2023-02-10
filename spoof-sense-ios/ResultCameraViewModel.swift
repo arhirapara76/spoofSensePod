@@ -17,7 +17,7 @@ class ResultCameraViewModel {
     var jsonObject = [String: Any]()
 
     func postURLSessionGetData(success: @escaping SuccessResponseWithString, failure: @escaping FailureResponse) {
-        let apiKey = SetCustomUI.shared.apiKey
+        let apiKey = SpoofSense.apiKey
         let parameters = ["data": base64ImageData]
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         var request = URLRequest(url: URL(string: "https://rah9bywlua.execute-api.ap-south-1.amazonaws.com/prod/antispoofing")!,timeoutInterval: Double.infinity)

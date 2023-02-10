@@ -31,8 +31,8 @@ private extension ResultViewController {
         self.callImageResultApi()
         btnHome.clipsToBounds = true
         btnHome.layer.cornerRadius = 4
-        btnHome.setTitleColor(SetCustomUI.shared.buttonTitleColor, for: .normal)
-        btnHome.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
+        btnHome.setTitleColor(SpoofSense.buttonTitleColor, for: .normal)
+        btnHome.backgroundColor = SpoofSense.buttonBackgroundColor
         let podBundle = Bundle(for: ResultViewController.self)
         let image = UIImage(named: "ic_close", in: podBundle, compatibleWith: nil)
         btnClose.setImage(image, for: .normal)
@@ -61,7 +61,7 @@ private extension ResultViewController {
             isResultFaild = true
             let image = UIImage(named: "ic_faild", in: podBundle, compatibleWith: nil)
             imageViewLogo.image = image
-            btnHome.setTitle("Go to back", for: .normal)
+            btnHome.setTitle("Try again", for: .normal)
         }
     }
 }
@@ -69,14 +69,14 @@ private extension ResultViewController {
 private extension ResultViewController {
     
     @IBAction func onBtnBack(_ sender: UIButton) {
-        ResultJsonObject.shared.onCloseView?()
+        SpoofSense.resultCallBack?(resultCameraVM.jsonObject)
     }
     
     @IBAction func onBtnGoToHome(_ sender: UIButton) {
         if isResultFaild {
             self.navigationController?.popViewController(animated: true)
         } else {
-            ResultJsonObject.shared.onGetResult?(resultCameraVM.jsonObject)
+            SpoofSense.resultCallBack?(resultCameraVM.jsonObject)
         }
     }
 }

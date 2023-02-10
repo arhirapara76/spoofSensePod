@@ -14,8 +14,6 @@ public class FaceGuidelinesViewController: UIViewController {
     @IBOutlet weak var imageVuewNoFaceDetect: UIImageView!
     @IBOutlet weak var imageViewMultiFace: UIImageView!
     
-    var resultCameraVM = ResultCameraViewModel()
-
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -38,9 +36,9 @@ private extension FaceGuidelinesViewController {
     }
     
     func setCustomUI() {
-        btnCheckLiveness.setTitle(SetCustomUI.shared.buttonTextTitle, for: .normal)
-        btnCheckLiveness.setTitleColor(SetCustomUI.shared.buttonTitleColor, for: .normal)
-        btnCheckLiveness.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
+        btnCheckLiveness.setTitle(SpoofSense.buttonTextTitle, for: .normal)
+        btnCheckLiveness.setTitleColor(SpoofSense.buttonTitleColor, for: .normal)
+        btnCheckLiveness.backgroundColor = SpoofSense.buttonBackgroundColor
     }
 }
 
@@ -49,7 +47,6 @@ private extension FaceGuidelinesViewController {
         let podBundle = Bundle(for: CameraViewController.self)
         let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
         let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-        vc?.resultCameraVM = self.resultCameraVM
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

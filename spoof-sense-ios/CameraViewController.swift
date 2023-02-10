@@ -51,7 +51,7 @@ private extension CameraViewController {
     }
     
     func setCustomUI() {
-        btnCapture.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
+        btnCapture.backgroundColor = SpoofSense.buttonBackgroundColor
     }
     
     func setupCameraView() {

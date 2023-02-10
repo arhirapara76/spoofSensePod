@@ -8,16 +8,18 @@
 import Foundation
 import UIKit
 
+public var SpoofSense = SetCustomUI()
+
 public class SetCustomUI {
-    
-    public static let shared = SetCustomUI()
+    public var resultCallBack:(([String:Any]) -> ())?
+    private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
     
     private var _appFirstName = "Spoof"
     private var _apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
     private var _buttonTextTitle = "Check Liveness"
     private var _buttonTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     private var _buttonBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
-    private var _isShowGuidelinesVC = true
+    private var _showScreen = SelecteLaunchScreen.openSplaceScreen
     private var _appLogo = UIImage()
     private var _appFirstNameColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
     private var _appLastNameColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
@@ -70,12 +72,12 @@ public class SetCustomUI {
         }
     }
     
-    public var isShowGuidelinesVC: Bool {
+    public var showScreen: SelecteLaunchScreen {
         get {
-            return _isShowGuidelinesVC
+            return _showScreen
         }
         set {
-            self._isShowGuidelinesVC = newValue
+            self._showScreen = newValue
         }
     }
     
@@ -133,6 +135,35 @@ public class SetCustomUI {
         }
         set {
             self._versionNumberColor = newValue
+        }
+    }
+}
+
+//MARK: Navigation
+public extension SetCustomUI {
+    func launch() {
+        switch showScreen {
+        case .openSplaceScreen:
+            let podBundle = Bundle(for: CameraViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
+                let navigationController = UINavigationController.init(rootViewController: vc)
+                _APP_DELEGATE.window?.rootViewController = navigationController
+            }
+        case .openGuidelinesScreen:
+            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController {
+                let navigationController = UINavigationController.init(rootViewController: vc)
+                _APP_DELEGATE.window?.rootViewController = navigationController
+            }
+        case .openCameraScreen:
+            let podBundle = Bundle(for: CameraViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+                let navigationController = UINavigationController.init(rootViewController: vc)
+                _APP_DELEGATE.window?.rootViewController = navigationController
+            }
         }
     }
 }
