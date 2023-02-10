@@ -16,6 +16,7 @@ public class ResultViewController: UIViewController {
     @IBOutlet weak var lblText: UILabel!
     @IBOutlet weak var btnHome: UIButton!
     @IBOutlet weak var activityIndicatorResult: UIActivityIndicatorView!
+    @IBOutlet weak var btnClose: UIButton!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ private extension ResultViewController {
         btnHome.layer.cornerRadius = 4
         btnHome.setTitleColor(SetCustomUI.shared.buttonTitleColor, for: .normal)
         btnHome.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
+        let podBundle = Bundle(for: ResultViewController.self)
+        let image = UIImage(named: "ic_close", in: podBundle, compatibleWith: nil)
+        btnClose.setImage(image, for: .normal)
     }
     
     func showLoader() {
@@ -63,6 +67,11 @@ private extension ResultViewController {
 }
 
 private extension ResultViewController {
+    
+    @IBAction func onBtnBack(_ sender: UIButton) {
+        ResultJsonObject.shared.onCloseView?()
+    }
+    
     @IBAction func onBtnGoToHome(_ sender: UIButton) {
         if isResultFaild {
             self.navigationController?.popViewController(animated: true)

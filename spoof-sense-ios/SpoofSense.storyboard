@@ -74,6 +74,18 @@
                                             <constraint firstItem="n0g-9b-Dpj" firstAttribute="centerX" secondItem="xWK-dy-iGQ" secondAttribute="centerX" id="f77-qr-7U7"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgk-7u-YaZ">
+                                        <rect key="frame" x="335" y="20" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="QsQ-dN-J38"/>
+                                            <constraint firstAttribute="width" secondItem="Fgk-7u-YaZ" secondAttribute="height" multiplier="1:1" id="aTc-7m-D6o"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_close"/>
+                                        <connections>
+                                            <action selector="onBtnBack:" destination="QMa-nK-567" eventType="touchUpInside" id="LpE-9B-e2w"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -83,7 +95,9 @@
                                     <constraint firstItem="d2R-r1-YkT" firstAttribute="centerX" secondItem="Z6x-aZ-XPU" secondAttribute="centerX" id="TY4-Rf-dx6"/>
                                     <constraint firstAttribute="trailing" secondItem="xWK-dy-iGQ" secondAttribute="trailing" constant="25" id="ThB-67-AsH"/>
                                     <constraint firstItem="d2R-r1-YkT" firstAttribute="top" secondItem="vz0-6b-mSm" secondAttribute="bottom" constant="21" id="Wqe-VR-J6n"/>
+                                    <constraint firstItem="Fgk-7u-YaZ" firstAttribute="top" secondItem="Z6x-aZ-XPU" secondAttribute="top" constant="20" id="cEg-ht-XES"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xWK-dy-iGQ" secondAttribute="bottom" constant="20" id="cKw-ia-rjX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fgk-7u-YaZ" secondAttribute="trailing" constant="20" id="oGh-N6-Pkn"/>
                                     <constraint firstItem="xWK-dy-iGQ" firstAttribute="top" secondItem="d2R-r1-YkT" secondAttribute="bottom" constant="50" id="poC-bL-vib"/>
                                     <constraint firstItem="vz0-6b-mSm" firstAttribute="centerX" secondItem="Z6x-aZ-XPU" secondAttribute="centerX" id="rpz-TR-jY4"/>
                                 </constraints>
@@ -105,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicatorResult" destination="FKG-eU-x0E" id="T06-Fr-ePP"/>
+                        <outlet property="btnClose" destination="Fgk-7u-YaZ" id="Sdc-AH-QIn"/>
                         <outlet property="btnHome" destination="n0g-9b-Dpj" id="SOR-Kh-gel"/>
                         <outlet property="imageViewLogo" destination="vz0-6b-mSm" id="jhB-6t-8yx"/>
                         <outlet property="lblText" destination="d2R-r1-YkT" id="erL-NY-6hH"/>
@@ -516,6 +531,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_close" width="30" height="30"/>
         <image name="ic_face_right" width="178" height="128.33332824707031"/>
         <image name="ic_multi_face" width="178" height="128.66667175292969"/>
         <image name="ic_splace_logo" width="65.666664123535156" height="64"/>

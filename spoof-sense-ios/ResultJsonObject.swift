@@ -10,4 +10,5 @@ import Foundation
 public class ResultJsonObject {
     public static let shared = ResultJsonObject()
     public var onGetResult:(([String:Any]) -> ())?
+    public var onCloseView:(() -> ())?
 }
