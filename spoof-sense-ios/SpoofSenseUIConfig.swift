@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-public var SpoofSense = SetCustomUI()
+public var SpoofSense = SpoofSenseUIConfig()
 
-public class SetCustomUI {
+public class SpoofSenseUIConfig {
     public var resultCallBack:(([String:Any]) -> ())?
     private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
     
@@ -20,6 +20,7 @@ public class SetCustomUI {
     private var _buttonTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     private var _buttonBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
     private var _showScreen = SelecteLaunchScreen.openSplaceScreen
+    private var _showFaceGuidelinesScreen = true
     private var _appLogo = UIImage()
     private var _appFirstNameColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
     private var _appLastNameColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
@@ -69,6 +70,15 @@ public class SetCustomUI {
         }
         set {
             self._buttonBackgroundColor = newValue
+        }
+    }
+    
+    public var showFaceGuidelinesScreen: Bool {
+        get {
+            return _showFaceGuidelinesScreen
+        }
+        set {
+            self._showFaceGuidelinesScreen = newValue
         }
     }
     
@@ -140,10 +150,10 @@ public class SetCustomUI {
 }
 
 //MARK: Navigation
-public extension SetCustomUI {
+public extension SpoofSenseUIConfig {
     func launch() {
         if _apiKey.isEmpty {
-            let jsonObject: [String: Any] = ["message": "Api key is missing.", "status": false]
+            let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
             SpoofSense.resultCallBack?(jsonObject)
             return
         }

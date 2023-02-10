@@ -30,29 +30,36 @@ class ResultCameraViewModel {
             guard let data = data else {
                 print(String(describing: error))
                 failure(error as NSError?)
-                self.jsonObject = ["statusCode": statusCode, "message": error?.localizedDescription ?? "", "status": false]
+                self.jsonObject = ["message": error?.localizedDescription ?? "", "status": false]
                 return
             }
             DispatchQueue.main.async {
                 if let jsonData = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]) {
-                    let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
                     if let detaill = jsonData["detail"] as? String {
                         failure(NSError(localizedDescription: detaill))
-                        self.jsonObject = ["statusCode": statusCode, "message": detaill, "status": false]
+                        self.jsonObject = ["message": detaill, "status": false]
                     } else {
-                        let detaill = jsonData["message"] as? String ?? ""
+                        guard let detaill = jsonData["message"] as? String, detaill.lowercased() != "Forbidden".lowercased()  else {
+                            self.jsonObject = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+                            failure(NSError(localizedDescription: ResultValue.apiKey.getResultMessage))
+                            return
+                        }
                         let model_output = jsonData["model_output"] as! [String: Any]
                         if let pred_idx = model_output["pred_idx"] as? String, let resultValue = ResultValue(rawValue: pred_idx) {
                             switch resultValue {
                             case .real:
-                                self.jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": true]
+                                self.jsonObject = ["message": resultValue.getResultMessage, "status": true]
                                 success(resultValue.getResultMessage)
                             case .spoof:
-                                self.jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": false]
+                                self.jsonObject = ["message": resultValue.getResultMessage, "status": false]
                                 failure(NSError(localizedDescription: resultValue.getResultMessage))
+                            case .apiKey:
+                                self.jsonObject = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+                                failure(NSError(localizedDescription: ResultValue.apiKey.getResultMessage))
+                                break
                             }
                         } else {
-                            self.jsonObject = ["statusCode": statusCode, "message": detaill, "status": true]
+                            self.jsonObject = ["message": detaill, "status": true]
                             success(detaill)
                         }
                         

@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum UserDefaultKeys: String {
-    case isUserSetApiKey                                                 = "IsUserSetApiKey"
-    case userRegisterApiKey                                              = "UserRegisterApiKey"
+    case isUserSetApiKey    = "IsUserSetApiKey"
+    case userRegisterApiKey = "UserRegisterApiKey"
 }
 
 public enum SelecteLaunchScreen {
@@ -20,8 +20,9 @@ public enum SelecteLaunchScreen {
 }
 
 enum ResultValue: String, CaseIterable {
-    case real                                                            = "real"
-    case spoof                                                           = "spoof"
+    case real   = "real"
+    case spoof  = "spoof"
+    case apiKey  = "apiKey"
     
     var getResultMessage: String {
         switch self {
@@ -29,6 +30,8 @@ enum ResultValue: String, CaseIterable {
             return "Liveness Confirmed"
         case .spoof:
             return ""
+        case .apiKey:
+            return "Api key is missing."
         }
     }
 }

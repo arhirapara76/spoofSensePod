@@ -51,7 +51,7 @@
 		88BAA7A22994C5A800B2CD57 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A12994C5A800B2CD57 /* CameraViewController.swift */; };
 		88BAA7A42994CB4800B2CD57 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A32994CB4800B2CD57 /* ResultViewController.swift */; };
 		88BAA7A62994CE2A00B2CD57 /* ResultCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A52994CE2A00B2CD57 /* ResultCameraViewModel.swift */; };
-		88BAA7A82994D87000B2CD57 /* SetCustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A72994D87000B2CD57 /* SetCustomUI.swift */; };
+		88BAA7A82994D87000B2CD57 /* SpoofSenseUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A72994D87000B2CD57 /* SpoofSenseUIConfig.swift */; };
 		88BAA7AA2994D8DF00B2CD57 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */; };
 		88BAA7AC2994D8FA00B2CD57 /* NSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */; };
 		88BAA7AE2994EE2C00B2CD57 /* SpoofSense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */; };
@@ -104,7 +104,7 @@
 		88BAA7A12994C5A800B2CD57 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		88BAA7A32994CB4800B2CD57 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		88BAA7A52994CE2A00B2CD57 /* ResultCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCameraViewModel.swift; sourceTree = "<group>"; };
-		88BAA7A72994D87000B2CD57 /* SetCustomUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCustomUI.swift; sourceTree = "<group>"; };
+		88BAA7A72994D87000B2CD57 /* SpoofSenseUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoofSenseUIConfig.swift; sourceTree = "<group>"; };
 		88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extension.swift"; sourceTree = "<group>"; };
 		88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpoofSense.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				88BAA7A12994C5A800B2CD57 /* CameraViewController.swift */,
 				88BAA7A32994CB4800B2CD57 /* ResultViewController.swift */,
 				88BAA7A52994CE2A00B2CD57 /* ResultCameraViewModel.swift */,
-				88BAA7A72994D87000B2CD57 /* SetCustomUI.swift */,
+				88BAA7A72994D87000B2CD57 /* SpoofSenseUIConfig.swift */,
 				88BAA7A92994D8DF00B2CD57 /* AppEnum.swift */,
 				88BAA7AB2994D8FA00B2CD57 /* NSError+Extension.swift */,
 				88BAA7AD2994EE2C00B2CD57 /* SpoofSense.storyboard */,
@@ -336,7 +336,7 @@
 				88BAA73E2994BC6E00B2CD57 /* AppDelegate.swift in Sources */,
 				88BAA7A22994C5A800B2CD57 /* CameraViewController.swift in Sources */,
 				88BAA7542994BDF800B2CD57 /* SplaceViewController.swift in Sources */,
-				88BAA7A82994D87000B2CD57 /* SetCustomUI.swift in Sources */,
+				88BAA7A82994D87000B2CD57 /* SpoofSenseUIConfig.swift in Sources */,
 				88BAA7A62994CE2A00B2CD57 /* ResultCameraViewModel.swift in Sources */,
 				88BAA7AA2994D8DF00B2CD57 /* AppEnum.swift in Sources */,
 				88BAA7532994BDF800B2CD57 /* FaceGuidelinesViewController.swift in Sources */,

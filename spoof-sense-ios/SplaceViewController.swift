@@ -48,24 +48,16 @@ private extension SplaceViewController {
 //MARK: Action
 private extension SplaceViewController {
     @IBAction func onBtnCheckLiveness(_ sender: UIButton) {
-        let podBundle = Bundle(for: FaceGuidelinesViewController.self)
-        let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
-        
-//        switch SpoofSense.showScreen {
-//        case .openSplaceScreen:
-//            break
-//        case .openGuidelinesScreen:
-//            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
-//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-//            let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
-//            self.navigationController?.pushViewController(vc!, animated: true)
-//        case .openCameraScreen:
-//            let podBundle = Bundle(for: CameraViewController.self)
-//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-//            let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-//            self.navigationController?.pushViewController(vc!, animated: true)
-//        }
+        if SpoofSense.showFaceGuidelinesScreen {
+            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
+            let podBundle = Bundle(for: CameraViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
 }
