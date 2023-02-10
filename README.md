@@ -77,7 +77,7 @@ For Example:
 ResultJsonObject.shared.onGetResult // return jsonObject
 ```
 
-## Exmple:
+## Get result exmple:
 ```
 ResultJsonObject.shared.onGetResult = { [weak self] (jsonObject) -> Void in
     guard let self = self else { return }
@@ -92,7 +92,7 @@ ResultJsonObject.shared.onCloseView // call this block close the app
 ```
 
 ```
-## Exmple:
+## Close result exmple:
 
   ResultJsonObject.shared.onCloseView = { [weak self] () -> Void in
     guard let self = self else { return }
