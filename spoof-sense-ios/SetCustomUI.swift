@@ -15,7 +15,7 @@ public class SetCustomUI {
     private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
     
     private var _appFirstName = "Spoof"
-    private var _apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
+    private var _apiKey = ""//"Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
     private var _buttonTextTitle = "Check Liveness"
     private var _buttonTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     private var _buttonBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
@@ -142,7 +142,12 @@ public class SetCustomUI {
 //MARK: Navigation
 public extension SetCustomUI {
     func launch() {
-        switch showScreen {
+        if _apiKey.isEmpty {
+            let jsonObject: [String: Any] = ["message": "Api key is missing.", "status": false]
+            SpoofSense.resultCallBack?(jsonObject)
+            return
+        }
+        switch SpoofSense.showScreen {
         case .openSplaceScreen:
             let podBundle = Bundle(for: CameraViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
