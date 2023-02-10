@@ -28,7 +28,7 @@ There are main 3 screens:
 You can open any screen from any of the above screens.
 You can also set a custom design, for which you have to call a function in the ViewController.
 
-##Belove function
+## Belove function
 
 ```
  SetCustomUI.shared.buttonBackgroundColor
@@ -43,7 +43,7 @@ You can also set a custom design, for which you have to call a function in the V
  SetCustomUI.shared.versionNumberString
  SetCustomUI.shared.versionNumberColor
 ```
-##Example:
+## Example:
 SetCustomUI.shared.buttonBackgroundColor = .red
 
 ```
