@@ -75,13 +75,10 @@ isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines 
 
 For Example:
 ```
-  SetCustomUI.shared.buttonBackgroundColor = .red
+  SpoofSense.buttonBackgroundColor = .red
+  SpoofSense.apiKey = "Set_Your_Api_Key"
 
-  let podBundle = Bundle(for: SplaceViewController.self)
-  let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-  if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
-  self.navigationController?.pushViewController(vc, animated: true)
-  }
+  SpoofSense.launch(with: Your_Navigation_Controller)
 ```
 
 ## How to get result 
