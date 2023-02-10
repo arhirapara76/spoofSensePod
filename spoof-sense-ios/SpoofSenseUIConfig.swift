@@ -151,7 +151,7 @@ public class SpoofSenseUIConfig {
 
 //MARK: Navigation
 public extension SpoofSenseUIConfig {
-    func launch() {
+    func launch(with navigationController: UINavigationController) {
         if _apiKey.isEmpty {
             let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
             SpoofSense.resultCallBack?(jsonObject)
@@ -159,26 +159,41 @@ public extension SpoofSenseUIConfig {
         }
         switch SpoofSense.showScreen {
         case .openSplaceScreen:
-            let podBundle = Bundle(for: CameraViewController.self)
+            let podBundle = Bundle(for: SplaceViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
-                let navigationController = UINavigationController.init(rootViewController: vc)
-                _APP_DELEGATE.window?.rootViewController = navigationController
-            }
+            let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController
+            navigationController.pushViewController(vc!, animated: true)
+            
+//            let podBundle = Bundle(for: CameraViewController.self)
+//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+//            if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
+//                let navigationController = UINavigationController.init(rootViewController: vc)
+//                _APP_DELEGATE.window?.rootViewController = navigationController
+//            }
         case .openGuidelinesScreen:
             let podBundle = Bundle(for: FaceGuidelinesViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController {
-                let navigationController = UINavigationController.init(rootViewController: vc)
-                _APP_DELEGATE.window?.rootViewController = navigationController
-            }
+            let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
+            navigationController.pushViewController(vc!, animated: true)
+            
+//            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
+//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+//            if let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController {
+//                let navigationController = UINavigationController.init(rootViewController: vc)
+//                _APP_DELEGATE.window?.rootViewController = navigationController
+//            }
         case .openCameraScreen:
-            let podBundle = Bundle(for: CameraViewController.self)
+            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-                let navigationController = UINavigationController.init(rootViewController: vc)
-                _APP_DELEGATE.window?.rootViewController = navigationController
-            }
+            let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+            navigationController.pushViewController(vc!, animated: true)
+            
+//            let podBundle = Bundle(for: CameraViewController.self)
+//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+//            if let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
+//                let navigationController = UINavigationController.init(rootViewController: vc)
+//                _APP_DELEGATE.window?.rootViewController = navigationController
+//            }
         }
     }
 }
