@@ -18,7 +18,7 @@ pod ''
 
 ## Usage
 
-```
+
 There are 3 main screens:
 1 Splash screen
 ![Simulator Screen Shot - iPhone 11 - 2023-02-10 at 19 36 48](https://user-images.githubusercontent.com/104752632/218112508-46985dcf-9e04-40d6-a858-9d27c5a06d0c.png)
@@ -29,7 +29,7 @@ There are 3 main screens:
 3 Camera screen
 ![IMG_0093](https://user-images.githubusercontent.com/104752632/218112565-83fbaead-689d-4ec4-9f1d-6bc175411601.jpg)
 
-```
+
 
 You can open any screen from any of the above screens.
 You can also set a custom design, for which you have to call a function in the ViewController.
