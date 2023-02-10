@@ -20,15 +20,22 @@ pod ''
 
 
 There are 3 main screens:
+```
 1 Splash screen
+```
 ![Simulator Screen Shot - iPhone 11 - 2023-02-10 at 19 36 48](https://user-images.githubusercontent.com/104752632/218112508-46985dcf-9e04-40d6-a858-9d27c5a06d0c.png)
 
+```
 2 Guideline screen
+```
+
 ![Simulator Screen Shot - iPhone 11 - 2023-02-10 at 19 36 49](https://user-images.githubusercontent.com/104752632/218112537-5bcd2530-05ed-4beb-8869-838e0db069e5.png)
 
+```
 3 Camera screen
-![IMG_0093](https://user-images.githubusercontent.com/104752632/218112565-83fbaead-689d-4ec4-9f1d-6bc175411601.jpg)
+```
 
+![IMG_0093](https://user-images.githubusercontent.com/104752632/218112565-83fbaead-689d-4ec4-9f1d-6bc175411601.jpg)
 
 
 You can open any screen from any of the above screens.
