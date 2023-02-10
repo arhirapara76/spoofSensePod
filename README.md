@@ -44,17 +44,17 @@ You can also set a custom design, for which you have to call a function in the V
 ## Belove function
 
 ```
- SetCustomUI.shared.buttonBackgroundColor
- SetCustomUI.shared.appFirstName
- SetCustomUI.shared.buttonTextTitle
- SetCustomUI.shared.buttonTitleColor
- SetCustomUI.shared.isShowGuidelinesVC
- SetCustomUI.shared.appLogo
- SetCustomUI.shared.appFirstNameColor
- SetCustomUI.shared.appLastNameColor
- SetCustomUI.shared.appLastName
- SetCustomUI.shared.versionNumberString
- SetCustomUI.shared.versionNumberColor
+ SpoofSense.buttonBackgroundColor
+ SpoofSense.appFirstName
+ SpoofSense.buttonTextTitle
+ SpoofSense.buttonTitleColor
+ SpoofSense.isShowGuidelinesVC
+ SpoofSense.appLogo
+ SpoofSense.appFirstNameColor
+ SpoofSense.appLastNameColor
+ SpoofSense.appLastName
+ SpoofSense.versionNumberString
+ SpoofSense.versionNumberColor
 ```
 
 ```
@@ -84,29 +84,15 @@ For Example:
 ## How to get result 
 
 ```
-ResultJsonObject.shared.onGetResult // return jsonObject
+SpoofSense.resultCallBack // return jsonObject
 ```
 
 ## Get result exmple:
 ```
-ResultJsonObject.shared.onGetResult = { [weak self] (jsonObject) -> Void in
+SpoofSense.resultCallBack = { [weak self] (jsonObject) -> Void in
     guard let self = self else { return }
     print("jsonObject: ", jsonObject)
 }
-```
-
-## How to close result screen
-
-```
-ResultJsonObject.shared.onCloseView // call this block close the app
-```
-
-```
-## Close result exmple:
-
-  ResultJsonObject.shared.onCloseView = { [weak self] () -> Void in
-    guard let self = self else { return }
-  }
 ```
 
 ## License
