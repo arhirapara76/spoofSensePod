@@ -10,7 +10,7 @@ import UIKit
 public class ResultViewController: UIViewController {
 
     var resultCameraVM = ResultCameraViewModel()
-   
+    var isResultFaild: Bool = false
     @IBOutlet weak var viewShowMessgae: UIView!
     @IBOutlet weak var imageViewLogo: UIImageView!
     @IBOutlet weak var lblText: UILabel!
@@ -30,8 +30,8 @@ private extension ResultViewController {
         self.callImageResultApi()
         btnHome.clipsToBounds = true
         btnHome.layer.cornerRadius = 4
-        btnHome.setTitleColor(self.resultCameraVM.btnTitleColor, for: .normal)
-        btnHome.backgroundColor = resultCameraVM.btnBackgroundColor
+        btnHome.setTitleColor(SetCustomUI.shared.buttonTitleColor, for: .normal)
+        btnHome.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
     }
     
     func showLoader() {
@@ -49,27 +49,35 @@ private extension ResultViewController {
         lblText.text = message
         let podBundle = Bundle(for: ResultViewController.self)
         if isSucess {
+            isResultFaild = false
             let image = UIImage(named: "ic_sucess", in: podBundle, compatibleWith: nil)
             imageViewLogo.image = image
+            btnHome.setTitle("Home", for: .normal)
         } else {
+            isResultFaild = true
             let image = UIImage(named: "ic_faild", in: podBundle, compatibleWith: nil)
             imageViewLogo.image = image
+            btnHome.setTitle("Go to back", for: .normal)
         }
     }
 }
 
 private extension ResultViewController {
     @IBAction func onBtnGoToHome(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        if isResultFaild {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            
+        }
     }
 }
 
 private extension ResultViewController {
     func callImageResultApi() {
         self.showLoader()
-        resultCameraVM.postURLSessionGetData { jsonData in
+        resultCameraVM.postURLSessionGetData { stringValue in
             self.hideLoader()
-            self.showResultText(true, message: jsonData)
+            self.showResultText(true, message: stringValue)
         } failure: { err in
             self.hideLoader()
             self.showResultText(false, message: err?.localizedDescription ?? "")

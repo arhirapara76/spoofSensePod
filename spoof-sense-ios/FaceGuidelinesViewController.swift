@@ -15,7 +15,6 @@ public class FaceGuidelinesViewController: UIViewController {
     @IBOutlet weak var imageViewMultiFace: UIImageView!
     
     var resultCameraVM = ResultCameraViewModel()
-    var isSelectCustomUI = false
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +27,6 @@ private extension FaceGuidelinesViewController {
     func setupUI() {
         btnCheckLiveness.clipsToBounds = true
         btnCheckLiveness.layer.cornerRadius = 4
-        btnCheckLiveness.setTitle(self.resultCameraVM.btnTextTitle, for: .normal)
-        btnCheckLiveness.setTitleColor(self.resultCameraVM.btnTitleColor, for: .normal)
-        btnCheckLiveness.backgroundColor = self.resultCameraVM.btnBackgroundColor
         let podBundle = Bundle(for: FaceGuidelinesViewController.self)
         let image1 = UIImage(named: "ic_face_right", in: podBundle, compatibleWith: nil)
         let image2 = UIImage(named: "ic_wrong_face", in: podBundle, compatibleWith: nil)
@@ -42,27 +38,9 @@ private extension FaceGuidelinesViewController {
     }
     
     func setCustomUI() {
-        if isSelectCustomUI {
-            btnCheckLiveness.setTitle(self.resultCameraVM.btnTextTitle, for: .normal)
-            btnCheckLiveness.setTitleColor(self.resultCameraVM.btnTitleColor, for: .normal)
-            btnCheckLiveness.backgroundColor = self.resultCameraVM.btnBackgroundColor
-        }
-    }
-}
-
-public extension FaceGuidelinesViewController {
-    func setupCustomUI(with appLogo: UIImage, appFirstName: String, appFirstNameTitleColor: UIColor, appLastName: String, appLastNameTitleColor: UIColor, appTitle: String, buttonTitle: String = "Check Liveness", appTitleColor: UIColor, buttonBackgroundColor: UIColor, buttonTextColor: UIColor) {
-        self.resultCameraVM.appLogo = appLogo
-        self.resultCameraVM.appFirstName = appFirstName
-        self.resultCameraVM.appLastName = appLastName
-        self.resultCameraVM.appFirstNameColor = appFirstNameTitleColor
-        self.resultCameraVM.appLastNameColor = appLastNameTitleColor
-        self.resultCameraVM.appTitle = appTitle
-        self.resultCameraVM.appTitleColor = appTitleColor
-        self.resultCameraVM.btnTextTitle = buttonTitle
-        self.resultCameraVM.btnTitleColor = buttonTextColor
-        self.resultCameraVM.btnBackgroundColor = buttonBackgroundColor
-        isSelectCustomUI = true
+        btnCheckLiveness.setTitle(SetCustomUI.shared.buttonTextTitle, for: .normal)
+        btnCheckLiveness.setTitleColor(SetCustomUI.shared.buttonTitleColor, for: .normal)
+        btnCheckLiveness.backgroundColor = SetCustomUI.shared.buttonBackgroundColor
     }
 }
 

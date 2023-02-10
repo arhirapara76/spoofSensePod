@@ -6,8 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 enum UserDefaultKeys: String {
     case isUserSetApiKey                                                 = "IsUserSetApiKey"
     case userRegisterApiKey                                              = "UserRegisterApiKey"
+}
+
+enum ResultValue: String, CaseIterable {
+    case real                                                            = "real"
+    case spoof                                                           = "spoof"
+    
+    var getResultMessage: String {
+        switch self {
+        case .real:
+            return "Liveness Confirmed"
+        case .spoof:
+            return ""
+        }
+    }
 }

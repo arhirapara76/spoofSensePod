@@ -8,26 +8,16 @@
 import Foundation
 import UIKit
 
-typealias SuccessResponseWithJsonData = (_ jsonData : String) -> ()
+typealias SuccessResponseWithString = (_ stringValue : String) -> ()
 typealias FailureResponse = (NSError?) -> (Void)
 
 class ResultCameraViewModel {
     
-    var btnTextTitle = "Check Liveness"
-    var btnTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    var btnBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
-    var isShowGuidelinesVC = true
-    var appLogo = UIImage()
-    var appFirstName = ""
-    var appFirstNameColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
-    var appLastNameColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
-    var appLastName = ""
-    var appTitle = ""
-    var appTitleColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
     var base64ImageData = ""
     
-    func postURLSessionGetData(success: @escaping SuccessResponseWithJsonData, failure: @escaping FailureResponse) {
-        let apiKey = UserDefaults.standard.string(forKey: UserDefaultKeys.userRegisterApiKey.rawValue) ?? "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
+    func postURLSessionGetData(success: @escaping SuccessResponseWithString, failure: @escaping FailureResponse) {
+        var jsonObject = [String: Any]()
+        let apiKey = SetCustomUI.shared.apiKey
         let parameters = ["data": base64ImageData]
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         var request = URLRequest(url: URL(string: "https://rah9bywlua.execute-api.ap-south-1.amazonaws.com/prod/antispoofing")!,timeoutInterval: Double.infinity)
@@ -36,18 +26,38 @@ class ResultCameraViewModel {
         request.httpMethod = "POST"
         request.httpBody = jsonData
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
             guard let data = data else {
                 print(String(describing: error))
                 failure(error as NSError?)
+                jsonObject = ["statusCode": statusCode, "message": error?.localizedDescription ?? "", "status": false]
+                ResultJsonObject.shared.onGetResult?(jsonObject)
                 return
             }
             DispatchQueue.main.async {
                 if let jsonData = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]) {
+                    let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
                     if let detaill = jsonData["detail"] as? String {
                         failure(NSError(localizedDescription: detaill))
+                        jsonObject = ["statusCode": statusCode, "message": detaill, "status": false]
+                        ResultJsonObject.shared.onGetResult?(jsonObject)
                     } else {
                         let detaill = jsonData["message"] as? String ?? ""
-                        success(detaill)
+                        let model_output = jsonData["model_output"] as! [String: Any]
+                        if let pred_idx = model_output["pred_idx"] as? String, let resultValue = ResultValue(rawValue: pred_idx) {
+                            switch resultValue {
+                            case .real:
+                                jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": true]
+                                success(resultValue.getResultMessage)
+                            case .spoof:
+                                jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": false]
+                                failure(NSError(localizedDescription: resultValue.getResultMessage))
+                            }
+                        } else {
+                            jsonObject = ["statusCode": statusCode, "message": detaill, "status": true]
+                            success(detaill)
+                        }
+                        ResultJsonObject.shared.onGetResult?(jsonObject)
                     }
                 } else {
                     failure(NSError(localizedDescription: "No face found in the image, please ensure the submitted image meets the requirements."))
@@ -56,4 +66,10 @@ class ResultCameraViewModel {
         }
         task.resume()
     }
+}
+
+
+public class ResultJsonObject {
+    static let shared = ResultJsonObject()
+    var onGetResult:(([String:Any]) -> ())?
 }
