@@ -67,7 +67,7 @@ private extension ResultViewController {
         if isResultFaild {
             self.navigationController?.popViewController(animated: true)
         } else {
-            
+            ResultJsonObject.shared.onGetResult?(resultCameraVM.jsonObject)
         }
     }
 }

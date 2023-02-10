@@ -14,9 +14,9 @@ typealias FailureResponse = (NSError?) -> (Void)
 class ResultCameraViewModel {
     
     var base64ImageData = ""
-    
+    var jsonObject = [String: Any]()
+
     func postURLSessionGetData(success: @escaping SuccessResponseWithString, failure: @escaping FailureResponse) {
-        var jsonObject = [String: Any]()
         let apiKey = SetCustomUI.shared.apiKey
         let parameters = ["data": base64ImageData]
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -30,8 +30,7 @@ class ResultCameraViewModel {
             guard let data = data else {
                 print(String(describing: error))
                 failure(error as NSError?)
-                jsonObject = ["statusCode": statusCode, "message": error?.localizedDescription ?? "", "status": false]
-                ResultJsonObject.shared.onGetResult?(jsonObject)
+                self.jsonObject = ["statusCode": statusCode, "message": error?.localizedDescription ?? "", "status": false]
                 return
             }
             DispatchQueue.main.async {
@@ -39,25 +38,24 @@ class ResultCameraViewModel {
                     let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
                     if let detaill = jsonData["detail"] as? String {
                         failure(NSError(localizedDescription: detaill))
-                        jsonObject = ["statusCode": statusCode, "message": detaill, "status": false]
-                        ResultJsonObject.shared.onGetResult?(jsonObject)
+                        self.jsonObject = ["statusCode": statusCode, "message": detaill, "status": false]
                     } else {
                         let detaill = jsonData["message"] as? String ?? ""
                         let model_output = jsonData["model_output"] as! [String: Any]
                         if let pred_idx = model_output["pred_idx"] as? String, let resultValue = ResultValue(rawValue: pred_idx) {
                             switch resultValue {
                             case .real:
-                                jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": true]
+                                self.jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": true]
                                 success(resultValue.getResultMessage)
                             case .spoof:
-                                jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": false]
+                                self.jsonObject = ["statusCode": statusCode, "message": resultValue.getResultMessage, "status": false]
                                 failure(NSError(localizedDescription: resultValue.getResultMessage))
                             }
                         } else {
-                            jsonObject = ["statusCode": statusCode, "message": detaill, "status": true]
+                            self.jsonObject = ["statusCode": statusCode, "message": detaill, "status": true]
                             success(detaill)
                         }
-                        ResultJsonObject.shared.onGetResult?(jsonObject)
+                        
                     }
                 } else {
                     failure(NSError(localizedDescription: "No face found in the image, please ensure the submitted image meets the requirements."))

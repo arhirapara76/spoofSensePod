@@ -21,7 +21,8 @@ public class CameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        btnCapture.clipsToBounds = true
+        btnCapture.layer.cornerRadius = btnCapture.bounds.height / 2
     }
     
     public override func viewWillAppear(_ animated: Bool) {
