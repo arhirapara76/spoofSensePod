@@ -20,7 +20,7 @@ pod ''
 
 ```
 There are main 3 screens:
-1 Splice screen
+1 Splash screen
 2 Guideline screen
 3 Camera screen
 ```
