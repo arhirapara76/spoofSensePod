@@ -77,12 +77,22 @@ For Example:
 ResultJsonObject.shared.onGetResult // return jsonObject
 ```
 
+## Exmple:
+ResultJsonObject.shared.onGetResult = { [weak self] (jsonObject) -> Void in
+    guard let self = self else { return }
+    print("jsonObject: ", jsonObject)
+}
+
 ## How to close result screen
 
 ```
 ResultJsonObject.shared.onCloseView // call this block close the app
 ```
+## Exmple:
 
+  ResultJsonObject.shared.onCloseView = { [weak self] () -> Void in
+    guard let self = self else { return }
+  }
 
 ## License
 
