@@ -14,10 +14,16 @@ typealias FailureResponse = (NSError?) -> (Void)
 class ResultCameraViewModel {
     
     var btnTextTitle = "Check Liveness"
-    var btnTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ??  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    var btnBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ??  #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
+    var btnTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    var btnBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
     var isShowGuidelinesVC = true
-
+    var appLogo = UIImage()
+    var appFirstName = ""
+    var appFirstNameColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
+    var appLastNameColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+    var appLastName = ""
+    var appTitle = ""
+    var appTitleColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
     var base64ImageData = ""
     
     func postURLSessionGetData(success: @escaping SuccessResponseWithJsonData, failure: @escaping FailureResponse) {

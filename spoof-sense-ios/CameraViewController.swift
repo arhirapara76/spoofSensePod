@@ -16,7 +16,8 @@ public class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-    
+    var isSelectCustomUI = false
+
     var resultCameraVM = ResultCameraViewModel()
     
     public override func viewDidLoad() {
@@ -44,11 +45,18 @@ public class CameraViewController: UIViewController {
 }
 
 public extension CameraViewController {
-    func setupCustomUI(with appLogo: UIImage, appFirstName: String, appLastName: String, appTitle: String, buttonTitle: String = "Check Liveness", buttonBackgroundColor: UIColor, buttonTextColor: UIColor, isShowGuidelinesScreen: Bool = true) {
-        btnCapture.backgroundColor = buttonBackgroundColor
+    func setupCustomUI(with appLogo: UIImage, appFirstName: String, appFirstNameTitleColor: UIColor, appLastName: String, appLastNameTitleColor: UIColor, appTitle: String, buttonTitle: String = "Check Liveness", appTitleColor: UIColor, buttonBackgroundColor: UIColor, buttonTextColor: UIColor) {
+        self.resultCameraVM.appLogo = appLogo
+        self.resultCameraVM.appFirstName = appFirstName
+        self.resultCameraVM.appLastName = appLastName
+        self.resultCameraVM.appFirstNameColor = appFirstNameTitleColor
+        self.resultCameraVM.appLastNameColor = appLastNameTitleColor
+        self.resultCameraVM.appTitle = appTitle
+        self.resultCameraVM.appTitleColor = appTitleColor
         self.resultCameraVM.btnTextTitle = buttonTitle
         self.resultCameraVM.btnTitleColor = buttonTextColor
         self.resultCameraVM.btnBackgroundColor = buttonBackgroundColor
+        isSelectCustomUI = true
     }
 }
 
@@ -57,6 +65,13 @@ private extension CameraViewController {
         btnCapture.clipsToBounds = true
         btnCapture.layer.cornerRadius = btnCapture.bounds.height / 2
         btnCapture.backgroundColor = resultCameraVM.btnBackgroundColor
+        setCustomUI()
+    }
+    
+    func setCustomUI() {
+        if isSelectCustomUI {
+            btnCapture.backgroundColor = self.resultCameraVM.btnBackgroundColor
+        }
     }
     
     func setupCameraView() {
