@@ -19,7 +19,7 @@ pod ''
 ## Usage
 
 ```
-There are 3 screens:
+There are main 3 screens:
 1 Splice screen
 2 Guideline screen
 3 Camera screen
@@ -30,9 +30,18 @@ You can also set a custom design, for which you have to call a function in the V
 
 #Belove function
 
-
 ```
- func setupCustomUI(with appLogo: UIImage, appFirstName: String, appFirstNameTitleColor: UIColor, appLastName: String, appLastNameTitleColor: UIColor, appTitle: String, buttonTitle: String = "Check Liveness", appTitleColor: UIColor, buttonBackgroundColor: UIColor, buttonTextColor: UIColor, isShowGuidelinesScreen: Bool = true) {
+ SetCustomUI.shared.buttonBackgroundColor
+ SetCustomUI.shared.appFirstName
+ SetCustomUI.shared.buttonTextTitle
+ SetCustomUI.shared.buttonTitleColor
+ SetCustomUI.shared.isShowGuidelinesVC
+ SetCustomUI.shared.appLogo
+ SetCustomUI.shared.appFirstNameColor
+ SetCustomUI.shared.appLastNameColor
+ SetCustomUI.shared.appLastName
+ SetCustomUI.shared.versionNumberString
+ SetCustomUI.shared.versionNumberColor
 ```
 
 ```
@@ -44,8 +53,8 @@ appLastNameTitleColor: Set your app lastname.
 buttonTitle: Is optional, Set any buttonTitle by defult set is "Check Liveness".
 buttonBackgroundColor: Set any button background color.
 buttonTextColor: Set any button Text Color.
-appTitle: Set any title.
-appTitleColor: Set any title color.
+versionNumberString: Set app versionNumber.
+versionNumberColor: Set app versionNumber color.
 isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines screen, if you pass false this, the Direct Camera screen opens.
 ```
 
@@ -56,8 +65,8 @@ For Example:
   let podBundle = Bundle(for: SplaceViewController.self)
   let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
   if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
-  vc.setupCustomUI(with appLogo: UIImage, appFirstName: "", appFirstNameTitleColor: UIColor.red, appLastName: "", appLastNameTitleColor: UIColor.red, appTitle: "", buttonTitle: String = "Check Liveness", appTitleColor: UIColor.red, buttonBackgroundColor: UIColor.red, buttonTextColor: UIColor.white, isShowGuidelinesScreen: Bool = true) // is Set CustomUI(Opetional)
-    self.navigationController?.pushViewController(vc, animated: true)
+  self.navigationController?.pushViewController(vc, animated: true)
+  }
 ```
 
 ## License
