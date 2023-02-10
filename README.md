@@ -43,8 +43,6 @@ You can also set a custom design, for which you have to call a function in the V
  SetCustomUI.shared.versionNumberString
  SetCustomUI.shared.versionNumberColor
 ```
-## Example:
-SetCustomUI.shared.buttonBackgroundColor = .red
 
 ```
 appLogo: Whatever logo you set here should be set there, Size must been 40 * 40.
@@ -64,6 +62,8 @@ isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines 
 
 For Example:
 ```
+  SetCustomUI.shared.buttonBackgroundColor = .red
+
   let podBundle = Bundle(for: SplaceViewController.self)
   let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
   if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
