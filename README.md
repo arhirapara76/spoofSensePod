@@ -71,6 +71,19 @@ For Example:
   }
 ```
 
+## How to get result 
+
+```
+ResultJsonObject.shared.onGetResult // return jsonObject
+```
+
+## How to close result screen
+
+```
+ResultJsonObject.shared.onCloseView // call this block close the app
+```
+
+
 ## License
 
 spoof-sense-ios is released under the MIT license. [See LICENSE](http://www.opensource.org/licenses/MIT) for details.
