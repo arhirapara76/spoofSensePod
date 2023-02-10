@@ -67,9 +67,3 @@ class ResultCameraViewModel {
         task.resume()
     }
 }
-
-
-public class ResultJsonObject {
-    static let shared = ResultJsonObject()
-    var onGetResult:(([String:Any]) -> ())?
-}
