@@ -19,7 +19,7 @@ pod ''
 ## Usage
 
 ```
-There are main 3 screens:
+There are 3 main screens:
 1 Splash screen
 2 Guideline screen
 3 Camera screen
