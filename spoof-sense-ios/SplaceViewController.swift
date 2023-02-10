@@ -40,6 +40,9 @@ private extension SplaceViewController {
             lblFirstName.text = self.resultCameraVM.appFirstName
             lblLastName.text = self.resultCameraVM.appLastName
             lblTitle.text = self.resultCameraVM.appTitle
+            lblFirstName.textColor = self.resultCameraVM.appFirstNameColor
+            lblLastName.textColor = self.resultCameraVM.appLastNameColor
+            lblTitle.textColor = self.resultCameraVM.appTitleColor
             btnCheckLiveness.setTitle(self.resultCameraVM.btnTextTitle, for: .normal)
             btnCheckLiveness.setTitleColor(self.resultCameraVM.btnTitleColor, for: .normal)
             btnCheckLiveness.backgroundColor = self.resultCameraVM.btnBackgroundColor
