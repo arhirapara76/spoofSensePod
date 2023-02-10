@@ -12,7 +12,7 @@ public var SpoofSense = SpoofSenseUIConfig()
 
 public class SpoofSenseUIConfig {
     public var resultCallBack:(([String:Any]) -> ())?
-    private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
+//    private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
     
     private var _appFirstName = "Spoof"
     private var _apiKey = ""//"Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
