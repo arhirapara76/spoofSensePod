@@ -86,7 +86,7 @@ Below are the various properties:-
 
 ## How to open any Viewcontroller & How to setupCustomUI 
 
-For Example:
+**For Example:**
 
   - SpoofSense.buttonBackgroundColor = .red
   - SpoofSense.apiKey = "Set_Your_Api_Key"
