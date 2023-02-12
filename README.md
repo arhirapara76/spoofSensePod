@@ -25,7 +25,7 @@ This CocoaPod scans the realtime face and gives desired result whether the captu
  - Also this CocoaPod doesn't allow face from any other digital device except `Inperson Realtime Face`.
 
 
-## Usage
+## How to
 
 
 There are 3 main screens:
