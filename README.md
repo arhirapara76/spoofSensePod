@@ -28,10 +28,6 @@ There are 3 main screens:
 ![image](https://user-images.githubusercontent.com/104752632/218302185-0fc9f765-41df-4e6f-853b-34b6f2d0e5c8.jpg)
 
 
-
-![IMG_0093](https://user-images.githubusercontent.com/104752632/218112565-83fbaead-689d-4ec4-9f1d-6bc175411601.jpg)
-
-
 You can open any screen from any of the above screens.
 You can also set a custom design, for which you have to call a function in the ViewController.
 
