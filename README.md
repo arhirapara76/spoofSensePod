@@ -16,13 +16,13 @@
 pod 'spoofSenseios'
 ```
 
-## What this POD does?
-This POD scans the realtime face and gives desired result whether the captured face is valid or not.
- Now this POD have some guidelines for validating the face(Also you can see in Screen no.2 Guideline screen).
+## What this CocoaPod does?
+This CocoaPod scans the realtime face and gives desired result whether the captured face is valid or not.
+ Now this CocoaPod have some guidelines for validating the face (Also you can see in Screen no.2 Guideline screen).
  - Ample lighting on the face.
  - No face tilt.
  - No multiple face detection.
- - Also this POD doesn't allow face from any other digital device except 'Inperson Realtime Face'.
+ - Also this CocoaPod doesn't allow face from any other digital device except 'Inperson Realtime Face'.
 
 
 ## Usage
