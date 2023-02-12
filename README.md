@@ -22,7 +22,7 @@ This CocoaPod scans the realtime face and gives desired result whether the captu
  - Ample lighting on the face.
  - No face tilt.
  - No multiple face detection.
- - Also this CocoaPod doesn't allow face from any other digital device except 'Inperson Realtime Face'.
+ - Also this CocoaPod doesn't allow face from any other digital device except `Inperson Realtime Face`.
 
 
 ## Usage
