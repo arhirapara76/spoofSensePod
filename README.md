@@ -36,40 +36,19 @@ This CocoaPod consist of mainly 3 screens.:
 
 ![image](https://user-images.githubusercontent.com/104752632/218302185-0fc9f765-41df-4e6f-853b-34b6f2d0e5c8.jpg)
 
+
 ## Here you can decide and customize any screen you want to open.
 
-Lest see them in detail:-
+Lest see them in detail:
 - You can customize the App Name by applying firstname and lastname also you can set color for the same.
 - You can customize other various parameters too:-
 
-## Belove function
-
 ```
- SpoofSense.buttonBackgroundColor
- SpoofSense.appFirstName
- SpoofSense.buttonTextTitle
- SpoofSense.buttonTitleColor
- SpoofSense.isShowGuidelinesVC
- SpoofSense.appLogo
- SpoofSense.appFirstNameColor
- SpoofSense.appLastNameColor
- SpoofSense.appLastName
- SpoofSense.versionNumberString
- SpoofSense.versionNumberColor
-```
-
-```
-appLogo: Whatever logo you set here should be set there, Size must been 40 * 40.
-appFirstName: Set any firstname.
-appLastName: Set any lastname.
-appFirstNameTitleColor: Set your app firstname.
-appLastNameTitleColor: Set your app lastname.
-buttonTitle: Is optional, Set any buttonTitle by defult set is "Check Liveness".
-buttonBackgroundColor: Set any button background color.
-buttonTextColor: Set any button Text Color.
-versionNumberString: Set app versionNumber.
-versionNumberColor: Set app versionNumber color.
-isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines screen, if you pass false this, the Direct Camera screen opens.
+Set app version
+Set app logo(40x40 size)
+Set App name
+Set Button background color,name and textcolor too.
+etc...
 ```
 
 ## How to open any Viewcontroller & How to setupCustomUI 
