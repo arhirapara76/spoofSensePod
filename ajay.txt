@@ -1,0 +1,80 @@
+SpoofSense
+------------------------------------------------------------------------------------------------------------------
+What this CocoaPod does ?
+->This CocoaPod scans the realtime face and gives desired result whether the captured face is valid or not.
+ Now this CocoaPod have some guidelines for validating the face(Also you can see in Screen no.2 Guideline screen).
+ ->Ample lighting on the face.
+ ->No face tilt.
+ ->No multiple face detection.
+ ->Also this CocoaPod doesn't allow face from any other digital device except 'Inperson Realtime Face'.
+
+This CocoaPod consist of mainly 3 screens.
+1 Splash screen
+2 Guideline screen
+3 Camera screen
+
+Here you can decide and customize any screen you want to open.
+
+Lest see them in detail:-
+
+->You can customize the App Name by applying firstname and lastname also you can set color for the same.
+->You can customize other various parameters too:-
+
+	-Set app version
+	-Set app logo(40x40 size)
+	-Set App name
+	-Set Button background color,name and textcolor too.
+	-etc
+
+How to customize:-
+You can also set a custom design, for which you have to call a function in the ViewController.
+
+Below are the various functions:-
+
+ 	 SpoofSense.buttonBackgroundColor
+ 	 SpoofSense.appFirstName
+ 	 SpoofSense.buttonTextTitle
+ 	 SpoofSense.buttonTitleColor
+ 	 SpoofSense.isShowGuidelinesVC
+ 	 SpoofSense.appLogo
+ 	 SpoofSense.appFirstNameColor
+ 	 SpoofSense.appLastNameColor
+ 	 SpoofSense.appLastName
+ 	 SpoofSense.versionNumberString
+ 	 SpoofSense.versionNumberColor
+
+
+Below are the various properties:-
+
+ 	appLogo: Whatever logo you set here should be set there, Size must been 40 * 40.
+	appFirstName: Set any firstname.
+	appLastName: Set any lastname.
+	appFirstNameTitleColor: Set your app firstname.
+	appLastNameTitleColor: Set your app lastname.
+	buttonTitle: Is optional, Set any buttonTitle by defult set is "Check Liveness".
+	buttonBackgroundColor: Set any button background color.
+	buttonTextColor: Set any button Text Color.
+	versionNumberString: Set app versionNumber.
+	versionNumberColor: Set app versionNumber color.
+	isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines screen, if you pass false 				this, the Direct Camera screen opens.
+
+(Note:API Key is Mandatory.)
+=>How to open any Viewcontroller & How to setupCustomUI:-
+
+For Example:
+
+ SpoofSense.buttonBackgroundColor = .red
+ SpoofSense.apiKey = "Set_Your_Api_Key"
+ //Open specific screen
+ SpoofSense.showScreen = .openSplaceScreen // Open Any Screen(.openGuidelinesScreen, .openCameraScreen)
+ SpoofSense.showFaceGuidelinesScreen = false // By defult value is True, assign False skip GuidelinesScreen
+ SpoofSense.launch(with: Your_Navigation_Controller)
+
+How to get result:-
+ SpoofSense.resultCallBack // return jsonObject
+
+Get result exmple:
+ SpoofSense.resultCallBack = { [weak self] (jsonObject) -> Void in
+     guard let self = self else { return }
+     print("jsonObject: ", jsonObject)
+ }
