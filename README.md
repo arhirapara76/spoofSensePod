@@ -17,7 +17,7 @@ pod 'spoofSenseios'
 ```
 
 ## What this CocoaPod does?
-This CocoaPod scans the realtime face and gives desired result whether the captured face is valid or not.
+This CocoaPod scans the realtime face and gives desired resultCallBack whether the captured face is valid or not.
  Now this CocoaPod have some guidelines for validating the face (Also you can see in Screen no.2 Guideline screen).
  - Ample lighting on the face.
  - No face tilt.
@@ -87,14 +87,15 @@ Below are the various properties:-
 ## How to open any Viewcontroller & How to setupCustomUI 
 
 For Example:
-```
-  SpoofSense.buttonBackgroundColor = .red
-  SpoofSense.apiKey = "Set_Your_Api_Key"
+
+  - SpoofSense.buttonBackgroundColor = .red
+  - SpoofSense.apiKey = "Set_Your_Api_Key"
+  
   **Open specific screen**
-  SpoofSense.showScreen = .openSplaceScreen // Open Any Screen(.openGuidelinesScreen, .openCameraScreen)
-  SpoofSense.showFaceGuidelinesScreen = false // By defult value is True, assign False skip GuidelinesScreen
-  SpoofSense.launch(with: Your_Navigation_Controller)
-```
+  - SpoofSense.showScreen = .openSplaceScreen // Open Any Screen(.openGuidelinesScreen, .openCameraScreen)
+  - SpoofSense.showFaceGuidelinesScreen = false // By defult value is True, assign False skip GuidelinesScreen
+  - SpoofSense.launch(with: Your_Navigation_Controller)
+
 
 ## How to get result 
 
