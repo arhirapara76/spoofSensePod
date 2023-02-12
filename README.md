@@ -54,7 +54,7 @@ etc...
 How to customize:-
 - You can also set a custom design, for which you have to call a function in the ViewController.
 
-Below are the various functions:-
+Below are the various functions:
 
  - SpoofSense.buttonBackgroundColor
  - SpoofSense.appFirstName
@@ -71,16 +71,16 @@ Below are the various functions:-
 Below are the various properties:-
 
  - appLogo: Whatever logo you set here should be set there, Size must been 40 * 40.
-	- appFirstName: Set any firstname.
-	- appLastName: Set any lastname.
-	- appFirstNameTitleColor: Set your app firstname.
-	- appLastNameTitleColor: Set your app lastname.
-	- buttonTitle: Is optional, Set any buttonTitle by defult set is "Check Liveness".
-	- buttonBackgroundColor: Set any button background color.
-	- buttonTextColor: Set any button Text Color.
-	- versionNumberString: Set app versionNumber.
-	- versionNumberColor: Set app versionNumber color.
-	- isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines screen, if you pass false 				this, the Direct Camera screen opens.
+ - appFirstName: Set any firstname.
+ - appLastName: Set any lastname.
+ - appFirstNameTitleColor: Set your app firstname.
+ - appLastNameTitleColor: Set your app lastname.
+ - buttonTitle: Is optional, Set any buttonTitle by defult set is "Check Liveness".
+ - buttonBackgroundColor: Set any button background color.
+ - buttonTextColor: Set any button Text Color.
+ - versionNumberString: Set app versionNumber.
+ - versionNumberColor: Set app versionNumber color.
+ - isShowGuidelinesScreen: Is optional, By default, you have opened the Guidelines screen, if you pass false, Direct Camera screen open.
 
 `Note:API Key is Mandatory.`
 
