@@ -33,11 +33,14 @@ This CocoaPod consist of mainly 3 screens.:
 2 Guideline screen
 3 Camera screen
 ```
+
 ![image](https://user-images.githubusercontent.com/104752632/218302185-0fc9f765-41df-4e6f-853b-34b6f2d0e5c8.jpg)
 
+## Here you can decide and customize any screen you want to open.
 
-You can open any screen from any of the above screens.
-You can also set a custom design, for which you have to call a function in the ViewController.
+Lest see them in detail:-
+- You can customize the App Name by applying firstname and lastname also you can set color for the same.
+- You can customize other various parameters too:-
 
 ## Belove function
 
