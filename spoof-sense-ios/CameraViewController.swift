@@ -57,7 +57,6 @@ private extension CameraViewController {
     func setupCameraView() {
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
-        
         guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
         else {
             print("Unable to access front camera!")

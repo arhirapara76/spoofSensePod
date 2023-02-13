@@ -10,11 +10,12 @@ import UIKit
 
 public var SpoofSense = SpoofSenseUIConfig()
 let webUrl = "https://rah9bywlua.execute-api.ap-south-1.amazonaws.com/prod/antispoofing"
+
 public class SpoofSenseUIConfig {
     public var resultCallBack:(([String:Any]) -> ())?
     
     private var _appFirstName = "Spoof"
-    private var _apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
+    private var _apiKey = ""
     private var _guidelinesButtonTextTitle = "Check Liveness"
     private var _splashButtonTextTitle = "Check Liveness"
     private var _buttonTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -102,15 +103,6 @@ public class SpoofSenseUIConfig {
             self._showSplashScreen = newValue
         }
     }
-    
-//    public var showScreen: SelecteLaunchScreen {
-//        get {
-//            return _showScreen
-//        }
-//        set {
-//            self._showScreen = newValue
-//        }
-//    }
     
     public var appLogo: UIImage {
         get {
@@ -210,6 +202,7 @@ private extension SpoofSenseUIConfig {
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController
             if self.isNaigationControllerPresent {
+                vc?.modalPresentationStyle = .fullScreen
                 self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
             } else {
                 self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)
@@ -219,6 +212,7 @@ private extension SpoofSenseUIConfig {
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
             if self.isNaigationControllerPresent {
+                vc?.modalPresentationStyle = .fullScreen
                 self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
             } else {
                 self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)
@@ -228,6 +222,7 @@ private extension SpoofSenseUIConfig {
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
             if self.isNaigationControllerPresent {
+                vc?.modalPresentationStyle = .fullScreen
                 self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
             } else {
                 self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)

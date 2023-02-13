@@ -30,7 +30,6 @@ class ResultCameraViewModel {
         request.httpMethod = "POST"
         request.httpBody = jsonData
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
             guard let data = data else {
                 print(String(describing: error))
                 failure(error as NSError?)
