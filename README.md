@@ -54,7 +54,7 @@ etc...
 How to customize:-
 - You can also set a custom design, for which you have to call a function in the ViewController.
 
-Below are the various functions:
+Below are the various properties:
 
  - SpoofSense.buttonBackgroundColor
  - SpoofSense.appFirstName
@@ -68,7 +68,7 @@ Below are the various functions:
  - SpoofSense.versionNumberString
  - SpoofSense.versionNumberColor
 
-Below are the various properties:-
+Below are the various properties description:-
 
  - appLogo: Whatever logo you set here should be set there, Size must been 40 * 40.
  - appFirstName: Set any firstname.
