@@ -56,6 +56,7 @@ How to customize:-
 
 Below are the various properties:
 
+ - SpoofSense.apiKey
  - SpoofSense.buttonBackgroundColor
  - SpoofSense.appFirstName
  - SpoofSense.buttonTextTitle
