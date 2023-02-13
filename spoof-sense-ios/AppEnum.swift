@@ -29,7 +29,7 @@ enum ResultValue: String, CaseIterable {
         case .real:
             return "Liveness Confirmed"
         case .spoof:
-            return ""
+            return "Please try again. Make sure the selfie is captured in proper lighting."
         case .apiKey:
             return "Api key is missing."
         }

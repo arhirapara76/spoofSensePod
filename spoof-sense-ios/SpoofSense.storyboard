@@ -445,7 +445,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0D-XZ-Dm4">
-                                        <rect key="frame" x="149" y="589" width="92" height="92"/>
+                                        <rect key="frame" x="149" y="644" width="92" height="92"/>
                                         <color key="backgroundColor" name="Button_BG_Color_0E68C0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Y0D-XZ-Dm4" secondAttribute="height" multiplier="1:1" id="vFG-uV-ble"/>
@@ -458,16 +458,6 @@
                                             <action selector="didTakePhoto:" destination="gyg-7T-4ba" eventType="touchUpInside" id="i7q-W8-vU8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioT-za-sUs">
-                                        <rect key="frame" x="160.66666666666666" y="701" width="69" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="KKv-Ui-piM"/>
-                                            <constraint firstAttribute="height" constant="40" id="xs5-WD-nQU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="18"/>
-                                        <color key="textColor" name="Text_Color_222222"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -476,10 +466,8 @@
                                     <constraint firstAttribute="trailing" secondItem="s4I-AJ-7Mb" secondAttribute="trailing" id="K14-ZQ-62f"/>
                                     <constraint firstItem="Y0D-XZ-Dm4" firstAttribute="height" secondItem="1zQ-ul-94z" secondAttribute="height" multiplier="0.12" id="Nsd-Y8-8h3"/>
                                     <constraint firstItem="s4I-AJ-7Mb" firstAttribute="top" secondItem="1zQ-ul-94z" secondAttribute="top" id="Z08-Fz-c84"/>
-                                    <constraint firstItem="ioT-za-sUs" firstAttribute="top" secondItem="Y0D-XZ-Dm4" secondAttribute="bottom" constant="20" id="Zgh-Ms-blm"/>
                                     <constraint firstItem="s4I-AJ-7Mb" firstAttribute="leading" secondItem="1zQ-ul-94z" secondAttribute="leading" id="anO-1W-xxL"/>
-                                    <constraint firstAttribute="bottom" secondItem="ioT-za-sUs" secondAttribute="bottom" constant="25" id="h2F-zr-HoJ"/>
-                                    <constraint firstItem="ioT-za-sUs" firstAttribute="centerX" secondItem="1zQ-ul-94z" secondAttribute="centerX" id="qA3-WR-O3Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y0D-XZ-Dm4" secondAttribute="bottom" constant="30" id="mun-gf-Rdy"/>
                                 </constraints>
                             </view>
                         </subviews>

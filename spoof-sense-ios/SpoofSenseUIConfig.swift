@@ -27,7 +27,7 @@ public class SpoofSenseUIConfig {
     private var _appLastName = "Sense"
     private var _versionNumberString = "face v1.0.8"
     private var _versionNumberColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
-    public var isNaigationControllerPresent = true
+    public var isNaigationControllerPresent = false
     public var isNaigationControllerAnimated = true
     public var navigation: UINavigationController?
     
@@ -172,17 +172,39 @@ public class SpoofSenseUIConfig {
 
 //MARK: Navigation
 public extension SpoofSenseUIConfig {
-    func launch(with navigationController: UINavigationController, isControllerPresent: Bool = false, isControllerAnimated: Bool = true) {
+    func present(with navigationController: UINavigationController, animated: Bool = true) {
         if _apiKey.isEmpty {
             let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
             print("jsonObject: ", jsonObject)
             SpoofSense.resultCallBack?(jsonObject)
             return
         }
-        self.isNaigationControllerPresent = isControllerPresent
-        self.isNaigationControllerAnimated = isControllerAnimated
+        self.isNaigationControllerPresent = true
+        self.isNaigationControllerAnimated = animated
         self.navigation = navigationController
-        
+        self.navigationController()
+    }
+    
+    func launch(with navigationController: UINavigationController) {
+        if _apiKey.isEmpty {
+            let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+            print("jsonObject: ", jsonObject)
+            SpoofSense.resultCallBack?(jsonObject)
+            return
+        }
+        self.navigation = navigationController
+        self.navigationController()
+    }
+}
+
+private extension SpoofSenseUIConfig {
+    func navigationController() {
+        if _apiKey.isEmpty {
+            let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+            print("jsonObject: ", jsonObject)
+            SpoofSense.resultCallBack?(jsonObject)
+            return
+        }
         if SpoofSense.showSplashScreen {
             let podBundle = Bundle(for: SplaceViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
