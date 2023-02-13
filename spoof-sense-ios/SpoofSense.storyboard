@@ -149,7 +149,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spoof" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-oN-mDJ">
-                                        <rect key="frame" x="101" y="356" width="94" height="40"/>
+                                        <rect key="frame" x="96.666666666666686" y="356" width="98.333333333333314" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="2X2-CS-8oB"/>
                                             <constraint firstAttribute="height" constant="40" id="861-w5-NTR"/>
@@ -159,7 +159,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sense" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxQ-fJ-QXH">
-                                        <rect key="frame" x="195" y="356" width="97.333333333333314" height="40"/>
+                                        <rect key="frame" x="195" y="356" width="101.33333333333331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="epW-1s-71h"/>
                                         </constraints>
@@ -445,7 +445,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0D-XZ-Dm4">
-                                        <rect key="frame" x="137.66666666666666" y="566" width="114.66666666666666" height="115"/>
+                                        <rect key="frame" x="149" y="589" width="92" height="92"/>
                                         <color key="backgroundColor" name="Button_BG_Color_0E68C0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Y0D-XZ-Dm4" secondAttribute="height" multiplier="1:1" id="vFG-uV-ble"/>
@@ -474,7 +474,7 @@
                                     <constraint firstItem="Y0D-XZ-Dm4" firstAttribute="centerX" secondItem="1zQ-ul-94z" secondAttribute="centerX" id="AgH-pU-eDz"/>
                                     <constraint firstAttribute="bottom" secondItem="s4I-AJ-7Mb" secondAttribute="bottom" id="DLi-Pe-QcS"/>
                                     <constraint firstAttribute="trailing" secondItem="s4I-AJ-7Mb" secondAttribute="trailing" id="K14-ZQ-62f"/>
-                                    <constraint firstItem="Y0D-XZ-Dm4" firstAttribute="height" secondItem="1zQ-ul-94z" secondAttribute="height" multiplier="0.15" id="Nsd-Y8-8h3"/>
+                                    <constraint firstItem="Y0D-XZ-Dm4" firstAttribute="height" secondItem="1zQ-ul-94z" secondAttribute="height" multiplier="0.12" id="Nsd-Y8-8h3"/>
                                     <constraint firstItem="s4I-AJ-7Mb" firstAttribute="top" secondItem="1zQ-ul-94z" secondAttribute="top" id="Z08-Fz-c84"/>
                                     <constraint firstItem="ioT-za-sUs" firstAttribute="top" secondItem="Y0D-XZ-Dm4" secondAttribute="bottom" constant="20" id="Zgh-Ms-blm"/>
                                     <constraint firstItem="s4I-AJ-7Mb" firstAttribute="leading" secondItem="1zQ-ul-94z" secondAttribute="leading" id="anO-1W-xxL"/>

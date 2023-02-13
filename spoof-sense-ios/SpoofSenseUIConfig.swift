@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 
 public var SpoofSense = SpoofSenseUIConfig()
-
+let webUrl = "https://rah9bywlua.execute-api.ap-south-1.amazonaws.com/prod/antispoofing"
 public class SpoofSenseUIConfig {
     public var resultCallBack:(([String:Any]) -> ())?
-//    private let _APP_DELEGATE = UIApplication.shared.delegate as! AppDelegate
     
     private var _appFirstName = "Spoof"
-    private var _apiKey = ""//"Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
-    private var _buttonTextTitle = "Check Liveness"
+    private var _apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"
+    private var _guidelinesButtonTextTitle = "Check Liveness"
+    private var _splashButtonTextTitle = "Check Liveness"
     private var _buttonTitleColor = UIColor(named: "Button_Text_Color_FFFFFF") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     private var _buttonBackgroundColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
-    private var _showScreen = SelecteLaunchScreen.openSplaceScreen
+    private var _showSplashScreen = true
     private var _showFaceGuidelinesScreen = true
     private var _appLogo = UIImage()
     private var _appFirstNameColor = UIColor(named: "Button_BG_Color_0E68C0") ?? #colorLiteral(red: 0.05490196078, green: 0.4078431373, blue: 0.7529411765, alpha: 1)
@@ -27,6 +27,9 @@ public class SpoofSenseUIConfig {
     private var _appLastName = "Sense"
     private var _versionNumberString = "face v1.0.8"
     private var _versionNumberColor = UIColor(named: "Text_Color_222222") ?? #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+    public var isNaigationControllerPresent = true
+    public var isNaigationControllerAnimated = true
+    public var navigation: UINavigationController?
     
     public var apiKey: String {
         get {
@@ -46,12 +49,21 @@ public class SpoofSenseUIConfig {
         }
     }
     
-    public var buttonTextTitle: String {
+    public var guidelinesButtonTextTitle: String {
         get {
-            return _buttonTextTitle
+            return _guidelinesButtonTextTitle
         }
         set {
-            self._buttonTextTitle = newValue
+            self._guidelinesButtonTextTitle = newValue
+        }
+    }
+    
+    public var splashButtonTextTitle: String {
+        get {
+            return _splashButtonTextTitle
+        }
+        set {
+            self._splashButtonTextTitle = newValue
         }
     }
     
@@ -82,14 +94,23 @@ public class SpoofSenseUIConfig {
         }
     }
     
-    public var showScreen: SelecteLaunchScreen {
+    public var showSplashScreen: Bool {
         get {
-            return _showScreen
+            return _showSplashScreen
         }
         set {
-            self._showScreen = newValue
+            self._showSplashScreen = newValue
         }
     }
+    
+//    public var showScreen: SelecteLaunchScreen {
+//        get {
+//            return _showScreen
+//        }
+//        set {
+//            self._showScreen = newValue
+//        }
+//    }
     
     public var appLogo: UIImage {
         get {
@@ -151,49 +172,44 @@ public class SpoofSenseUIConfig {
 
 //MARK: Navigation
 public extension SpoofSenseUIConfig {
-    func launch(with navigationController: UINavigationController) {
+    func launch(with navigationController: UINavigationController, isControllerPresent: Bool = false, isControllerAnimated: Bool = true) {
         if _apiKey.isEmpty {
             let jsonObject: [String: Any] = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+            print("jsonObject: ", jsonObject)
             SpoofSense.resultCallBack?(jsonObject)
             return
         }
-        switch SpoofSense.showScreen {
-        case .openSplaceScreen:
+        self.isNaigationControllerPresent = isControllerPresent
+        self.isNaigationControllerAnimated = isControllerAnimated
+        self.navigation = navigationController
+        
+        if SpoofSense.showSplashScreen {
             let podBundle = Bundle(for: SplaceViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController
-            navigationController.pushViewController(vc!, animated: true)
-            
-//            let podBundle = Bundle(for: CameraViewController.self)
-//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-//            if let vc = storyBoard.instantiateViewController(withIdentifier: "SplaceViewController") as? SplaceViewController {
-//                let navigationController = UINavigationController.init(rootViewController: vc)
-//                _APP_DELEGATE.window?.rootViewController = navigationController
-//            }
-        case .openGuidelinesScreen:
+            if self.isNaigationControllerPresent {
+                self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
+            } else {
+                self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)
+            }
+        } else if SpoofSense.showFaceGuidelinesScreen {
             let podBundle = Bundle(for: FaceGuidelinesViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController
-            navigationController.pushViewController(vc!, animated: true)
-            
-//            let podBundle = Bundle(for: FaceGuidelinesViewController.self)
-//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-//            if let vc = storyBoard.instantiateViewController(withIdentifier: "FaceGuidelinesViewController") as? FaceGuidelinesViewController {
-//                let navigationController = UINavigationController.init(rootViewController: vc)
-//                _APP_DELEGATE.window?.rootViewController = navigationController
-//            }
-        case .openCameraScreen:
+            if self.isNaigationControllerPresent {
+                self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
+            } else {
+                self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)
+            }
+        } else {
             let podBundle = Bundle(for: FaceGuidelinesViewController.self)
             let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
             let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-            navigationController.pushViewController(vc!, animated: true)
-            
-//            let podBundle = Bundle(for: CameraViewController.self)
-//            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-//            if let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController {
-//                let navigationController = UINavigationController.init(rootViewController: vc)
-//                _APP_DELEGATE.window?.rootViewController = navigationController
-//            }
+            if self.isNaigationControllerPresent {
+                self.navigation?.present(vc!, animated: self.isNaigationControllerAnimated, completion: nil)
+            } else {
+                self.navigation?.pushViewController(vc!, animated: self.isNaigationControllerAnimated)
+            }
         }
     }
 }

@@ -18,7 +18,6 @@ public class FaceGuidelinesViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
 }
 
 private extension FaceGuidelinesViewController {
@@ -36,7 +35,7 @@ private extension FaceGuidelinesViewController {
     }
     
     func setCustomUI() {
-        btnCheckLiveness.setTitle(SpoofSense.buttonTextTitle, for: .normal)
+        btnCheckLiveness.setTitle(SpoofSense.guidelinesButtonTextTitle, for: .normal)
         btnCheckLiveness.setTitleColor(SpoofSense.buttonTitleColor, for: .normal)
         btnCheckLiveness.backgroundColor = SpoofSense.buttonBackgroundColor
     }
@@ -44,9 +43,18 @@ private extension FaceGuidelinesViewController {
 
 private extension FaceGuidelinesViewController {
     @IBAction func onBtnCheckLiveness(_ sender: UIButton) {
-        let podBundle = Bundle(for: CameraViewController.self)
-        let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if self.navigationController == nil {
+            self.dismiss(animated: SpoofSense.isNaigationControllerAnimated) {
+                let podBundle = Bundle(for: CameraViewController.self)
+                let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+                SpoofSense.navigation?.pushViewController(vc!, animated: SpoofSense.isNaigationControllerAnimated)
+            }
+        } else {
+            let podBundle = Bundle(for: CameraViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+            self.navigationController?.pushViewController(vc!, animated: SpoofSense.isNaigationControllerAnimated)
+        }
     }
 }

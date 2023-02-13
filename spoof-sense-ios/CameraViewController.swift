@@ -92,11 +92,21 @@ private extension CameraViewController {
     }
     
     func goToResultView() {
-        let podBundle = Bundle(for: ResultViewController.self)
-        let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
-        vc?.resultCameraVM = self.resultCameraVM
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if self.navigationController == nil {
+            self.dismiss(animated: SpoofSense.isNaigationControllerAnimated) {
+                let podBundle = Bundle(for: ResultViewController.self)
+                let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+                vc?.resultCameraVM = self.resultCameraVM
+                SpoofSense.navigation?.pushViewController(vc!, animated: SpoofSense.isNaigationControllerAnimated)
+            }
+        } else {
+            let podBundle = Bundle(for: ResultViewController.self)
+            let storyBoard = UIStoryboard.init(name: "SpoofSense", bundle: podBundle)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+            vc?.resultCameraVM = self.resultCameraVM
+            self.navigationController?.pushViewController(vc!, animated: SpoofSense.isNaigationControllerAnimated)
+        }
     }
 }
 

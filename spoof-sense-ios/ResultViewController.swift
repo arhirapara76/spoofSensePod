@@ -69,6 +69,7 @@ private extension ResultViewController {
 private extension ResultViewController {
     
     @IBAction func onBtnBack(_ sender: UIButton) {
+        print("jsonObject: ", resultCameraVM.jsonObject)
         SpoofSense.resultCallBack?(resultCameraVM.jsonObject)
     }
     
@@ -76,6 +77,7 @@ private extension ResultViewController {
         if isResultFaild {
             self.navigationController?.popViewController(animated: true)
         } else {
+            print("jsonObject: ", resultCameraVM.jsonObject)
             SpoofSense.resultCallBack?(resultCameraVM.jsonObject)
         }
     }
