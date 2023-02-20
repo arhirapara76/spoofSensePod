@@ -17,7 +17,7 @@ class ResultCameraViewModel {
     var jsonObject = [String: Any]()
 
     func postURLSessionGetData(success: @escaping SuccessResponseWithString, failure: @escaping FailureResponse) {
-        let apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"//SpoofSense.apiKey
+        let apiKey = SpoofSense.apiKey
         if apiKey.isEmpty {
             DispatchQueue.main.async {
                 self.jsonObject = ["message": ResultValue.apiKey.getResultMessage, "status": false]
