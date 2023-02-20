@@ -17,10 +17,12 @@ class ResultCameraViewModel {
     var jsonObject = [String: Any]()
 
     func postURLSessionGetData(success: @escaping SuccessResponseWithString, failure: @escaping FailureResponse) {
-        let apiKey = SpoofSense.apiKey
+        let apiKey = "Ek5Bnc6Aqx1W9Ye2JXf2G6w6u2sjRjvOaNK79z39"//SpoofSense.apiKey
         if apiKey.isEmpty {
-            self.jsonObject = ["message": ResultValue.apiKey.getResultMessage, "status": false]
-            failure(NSError(localizedDescription: ResultValue.apiKey.getResultMessage))
+            DispatchQueue.main.async {
+                self.jsonObject = ["message": ResultValue.apiKey.getResultMessage, "status": false]
+                failure(NSError(localizedDescription: ResultValue.apiKey.getResultMessage))
+            }
         }
         let parameters = ["data": base64ImageData]
         let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -30,13 +32,13 @@ class ResultCameraViewModel {
         request.httpMethod = "POST"
         request.httpBody = jsonData
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                print(String(describing: error))
-                failure(error as NSError?)
-                self.jsonObject = ["message": error?.localizedDescription ?? "", "status": false]
-                return
-            }
             DispatchQueue.main.async {
+                guard let data = data else {
+                    print(String(describing: error))
+                    failure(error as NSError?)
+                    self.jsonObject = ["message": error?.localizedDescription ?? "", "status": false]
+                    return
+                }
                 if let jsonData = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]) {
                     if let detaill = jsonData["detail"] as? String {
                         failure(NSError(localizedDescription: detaill))
@@ -68,7 +70,9 @@ class ResultCameraViewModel {
                         
                     }
                 } else {
-                    failure(NSError(localizedDescription: "No face found in the image, please ensure the submitted image meets the requirements."))
+                    DispatchQueue.main.async {
+                        failure(NSError(localizedDescription: "No face found in the image, please ensure the submitted image meets the requirements."))
+                    }
                 }
             }
         }

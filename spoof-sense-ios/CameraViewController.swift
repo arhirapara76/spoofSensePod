@@ -130,10 +130,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         let scaledHeight = myImageHeight * ratio
         imageView.image = myImage
         imageView.frame = CGRect(x: 0, y: 0, width: myViewWidth, height: scaledHeight)
-        
-        guard let finalImageData = imageView.image?.pngData() else { return }
-        
-        let strBase64 = finalImageData.base64EncodedString(options: .lineLength64Characters)
+       // guard let finalImageData = imageView.image?.pngData() else { return }
+        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         self.resultCameraVM.base64ImageData = strBase64
         self.goToResultView()
     }
